@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  sentiment-app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # Connect to the Gemma service running on the host machine on port 12434
+      # Updated to use the chat completions endpoint based on user example
+      - GEMMA_API_URL=http://host.docker.internal:12434/engines/v1/chat/completions
+    extra_hosts:
+      - "host.docker.internal:host-gateway" # For Linux compatibility
+    # volumes:
+    #   ollama_data:
