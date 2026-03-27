@@ -8,9 +8,6 @@ docker build -t sentiment-analysis-app .
 # docker-compose up --build (from starting if packages not downloaded)
 # docker-compose up (from starting if packages already downloaded)
 # docker-compose down (to stop the container)
-
-
-
 # Check if build was successful
 if [ $? -eq 0 ]; then
     echo "Docker build successful."

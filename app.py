@@ -58,8 +58,6 @@ def call_gemma(text):
             {"role": "user", "content": prompt}
         ],
         "max_tokens": 100
-
-        
     }
     
     try:
@@ -178,7 +176,6 @@ def fallback_summary(comments: list[str]) -> str:
     keywords = ", ".join([w for w, _ in common]) if common else "no clear keywords"
     count = len(comments)
     return f"Quick take from {count} comments: conversation centers on {keywords}."
-
 @app.post("/summarize", response_model=SummarizeResponse)
 async def summarize(request: SummarizeRequest):
     if not request.comments:
